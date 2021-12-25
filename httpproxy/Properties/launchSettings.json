@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "httpproxy": {
+      "commandName": "Project",
+      "commandLineArgs": "c:\\Users\\me\\repos\\diagnosticsexpert-materials\\Module07-DNS-HTTPS\\Excercises\\whois\\concertoCA.pem"
+    }
+  }
+}

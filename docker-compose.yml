@@ -1,0 +1,22 @@
+version: '3.1'
+
+services:
+  whoisit_unsafe:
+    build:
+      context: ./whoisit_unsafe
+    container_name: whoisit_unsafe
+
+  tlsgate:
+    build:
+      context: ./tlsgate
+    container_name: tlsgate
+    ports:
+      - 8001:443
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_HTTPS_PORT=8001
+      - ASPNETCORE_URLS=https://+:443
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=Wh0is1t
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/whoisit_unsafe.pfx
+    volumes:
+      - ~/.aspnet/https:/https:ro
